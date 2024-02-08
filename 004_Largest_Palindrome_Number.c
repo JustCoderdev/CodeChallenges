@@ -13,11 +13,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <math.h>
-
 #include "./lib/jctypes.h"
 #include "./lib/logger.h"
-#include "./lib/sgr.h"
 
 n64 get_digit_count(n64 number)
 {
