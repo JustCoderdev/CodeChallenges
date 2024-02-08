@@ -2,6 +2,7 @@
 #define OUTILS_LOGGER_H
 
 #include "jctypes.h"
+#include <errno.h>
 
 
 #define log_fatal(msg) log_fatal_(msg, __FILE__, __LINE__)
