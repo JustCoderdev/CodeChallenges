@@ -4,25 +4,26 @@
 # Run file with
 # $ make FILE_ENTRY="001_Multiples_of_3_or_5"
 
-FILE_ENTRY=___
+FILE_ENTRY=$(wildcard 007*)
+
 FLAGS=-xc -Wall -Wextra -Werror -Wpedantic \
 	  -pedantic -pedantic-errors -std=c89  \
 	  -fcolor-diagnostics
 
-SRC_FILES=${FILE_ENTRY}.c \
+SRC_FILES=${FILE_ENTRY} \
  		  $(wildcard lib/*.c)
 
 local: clean build run
 clean:
 	@echo "Cleaning..."
-	@rm -f ./bin/${FILE_ENTRY}
+	@rm -f ./bin/${FILE_ENTRY:.c=}
 
 build: clean
-	@echo "Compiling..."
+	@echo "Compiling... "
 	@mkdir -p bin
-	@clang ${FLAGS} ${SRC_FILES} -o bin/${FILE_ENTRY}
+	@clang ${FLAGS} ${SRC_FILES} -o bin/${FILE_ENTRY:.c=}
 
 run:
 	@echo "Running... "
-	@chmod +x bin/${FILE_ENTRY}
-	@cd bin && ./${FILE_ENTRY}
+	@chmod +x bin/${FILE_ENTRY:.c=}
+	@cd bin && ./${FILE_ENTRY:.c=}
