@@ -4,7 +4,7 @@
 # Run file with
 # $ make FILE_ENTRY="001_Multiples_of_3_or_5"
 
-FILE_ENTRY=$(wildcard 009*)
+FILE_ENTRY=$(wildcard 010*)
 
 FLAGS=-xc -Wall -Wextra -Werror -Wpedantic \
 	  -pedantic -pedantic-errors -std=c89  \
