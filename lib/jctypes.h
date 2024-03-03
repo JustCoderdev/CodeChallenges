@@ -16,6 +16,8 @@ typedef signed short    i16; /* %d */
 typedef signed int      i32; /* %d */
 typedef signed long int i64; /* %ld */
 
+typedef float  r32; /* %f */
+typedef double r64; /* %lf */
 
 /* ------  Boolean definition  ------ */
 enum bool_t {
