@@ -6,8 +6,14 @@
  *
  *   Find the sum of all the primes below two million.
  *
+ * Mac:
  * Minimal debug time: 6:31.47
  * No printing - time: 6:01.75
+ * -O3 optimized time: 1:19.63
+ *
+ * Acer:
+ * No printing - time: 11:xx.xx
+ * -O3 optimized time: 2:xx.xx
  */
 
 #include <stdio.h>
@@ -78,7 +84,7 @@ n64 prime_get_next()
 		{
 			/* smaller: add to prime pool                  */
 			primes[g_prime_count] = g_prime;
-			pool[g_prime_count] = pow(g_prime, 2);
+			pool[g_prime_count] = g_prime * g_prime;
 			g_prime_count++;
 
 			/* if(g_prime_count == PRIME_BUFF_MAX) { */

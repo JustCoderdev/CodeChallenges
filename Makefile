@@ -4,11 +4,11 @@
 # Run file with
 # $ make FILE_ENTRY="001_Multiples_of_3_or_5"
 
-FILE_ENTRY=$(wildcard 011*)
+FILE_ENTRY=$(wildcard 013*)
 
 FLAGS=-xc -Wall -Wextra -Werror -Wpedantic \
 	  -pedantic -pedantic-errors -std=c89  \
-	  -fcolor-diagnostics
+	  -fcolor-diagnostics -O3
 
 SRC_FILES=${FILE_ENTRY} \
  		  $(wildcard lib/*.c)
