@@ -6,14 +6,19 @@
  *
  *   Find the sum of all the primes below two million.
  *
- * Minimal debug time: 6:31.47
- * No printing - time: 6:01.75
+ * MAC:
+ * 	- Minimal debug time: 6:31.47
+ * 	- No printing - time: 6:01.75
+ *
+ * ACER:
+ * 	- No printing - time: 11:00.94
+ * 	- O3 Optimized - time: 2:38.96
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <math.h>
+/* #include <math.h> */
 #include <signal.h>
 
 #include "./lib/jctypes.h"
@@ -49,12 +54,13 @@ n64 prime_get_next()
 	{
 		/* 1. Get next number */
 		g_prime++;
-		/* printf(CSI FG_CYAN M "PRIME: %lu\n" CSI RESET M, prime); */
-		/* buff_print(primes, prime_count); */
-		/* buff_print(pool, prime_count); */
+		/* printf(CSI FG_CYAN M "PRIME: %lu\n" CSI RESET M, g_prime); */
+		/* buff_print(primes, g_prime_count); */
+		/* buff_print(pool, g_prime_count); */
 		/* printf("__\n"); */
 
 		/* 2. Compare it with the smallest multiple in the pool */
+		/* smallest is unsigned, so -1 is the highest number possible */
 		for(smallest = -1, smallest_index = 0, i = 0; i < g_prime_count; ++i)
 		{
 			if(pool[i] <= smallest)
@@ -70,15 +76,14 @@ n64 prime_get_next()
 			}
 		}
 
-		/* printf(CSI FG_MAGENTA M "SMALLEST: %lu\n" CSI RESET M, smallest);
-		 */
+		/* printf(CSI FG_MAGENTA M "SMALLEST: %lu\n" CSI RESET M, smallest); */
 
 		/* 2. If                                           */
 		if(g_prime < smallest)
 		{
 			/* smaller: add to prime pool                  */
 			primes[g_prime_count] = g_prime;
-			pool[g_prime_count] = pow(g_prime, 2);
+			pool[g_prime_count] = g_prime * g_prime;
 			g_prime_count++;
 
 			/* if(g_prime_count == PRIME_BUFF_MAX) { */
