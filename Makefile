@@ -4,7 +4,11 @@
 # Run file with
 # $ make FILE_ENTRY="001_Multiples_of_3_or_5"
 
+<<<<<<< HEAD
 FILE_ENTRY=$(wildcard 013*)
+=======
+FILE_ENTRY=$(wildcard 012*)
+>>>>>>> 830cdb7 (Added Acer execution times)
 
 FLAGS=-xc -Wall -Wextra -Werror -Wpedantic \
 	  -pedantic -pedantic-errors -std=c89  \
